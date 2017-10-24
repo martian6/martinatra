@@ -31,17 +31,22 @@ end
 
 post '/create' do
 	#replace this
-	return params.to_s
+	p = Post.new
+	p.title = params['title']
+	p.body = params['body']
+
+	p.save
+
+	return "Success!"
 end
 
 get '/' do
 	#load all posts
 	#display them
-	@title = "All posts"
-	@headline = "My life in blog"
-	@paragraph = "Follow me plz. Follow 4 Follow."
+	@title = "Martinatra"
+	@headline = "My life in blog."
+	@paragraph = "Follow me or else."
 	@posts = Post.all
-
 
 	erb :index
 end
